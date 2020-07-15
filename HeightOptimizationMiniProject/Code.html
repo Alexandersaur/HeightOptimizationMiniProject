@@ -20,7 +20,7 @@
 
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-
+    <link href="prism (1).css" rel="stylesheet" />
 </head>
 
 <body>
@@ -82,13 +82,45 @@
                 </ul>
             </div>
         </div>
+        <div class="row">
+            <pre><code class="language-javascript">
+    <script>
+        //Step 1: click event handler
+        $("#btnSunset").on("click", function () {
+            //Step 2: get user data
+            let bldg1 = parseInt($("#sunsetIn1").val());
+            let bldg2 = parseInt($("#sunsetIn2").val());
+            let bldg3 = parseInt($("#sunsetIn3").val());
+            let bldg4 = parseInt($("#sunsetIn4").val());
+            let bldg5 = parseInt($("#sunsetIn5").val());
+            let bldg6 = parseInt($("#sunsetIn6").val());
+            //Step 3: build an array from the user input
+            let bldgArray = [bldg1, bldg2, bldg3, bldg4, bldg5, bldg6];
+            //let output = [];
+            let output = new Array();
+            let tallest = 0;
+            let currentBldg = 0;
+            for (let loop = 0; loop < bldgArray.length; loop++) {
+                currentBldg = bldgArray[loop];
+                //Step 4: perform algotrithm
+                if (currentBldg > tallest) {
+                    output.push(currentBldg);
+                    tallest = currentBldg;
+                }
+                //Step 5: output to user
+                $("#sunsetOut").html(`Given the input, <span class="bldgCount">${output.length}</span> building(s) can see the sunset. <br />The building(s) that can see the sunset are <span class="bldgCount">[${output.toString()}]</span>`);
+            }
+        });
+    </script>
+</code></pre>
+        </div>
     </div>
 
     <!-- Bootstrap core JavaScript -->
     <script src="//code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="//cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="//stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
-
+    <script src="prism (1).js"></script>
 </body>
 
 </html>
