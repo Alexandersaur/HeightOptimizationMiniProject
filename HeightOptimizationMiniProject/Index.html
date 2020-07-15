@@ -21,6 +21,30 @@
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 
+    <style>
+        .elWide {
+            width: 100%;
+        }
+
+        .sunsetIn {
+            background-color: blanchedalmond;
+            border-color: 2px solid rebeccapurple;
+            font-weight: 800;
+            margin-top: 50px;
+            margin-bottom: 10px;
+        }
+
+        hr {
+            height: 5px;
+            background-color: black;
+        }
+
+        .bldgCount {
+            font-weight: 900;
+            font-size: larger;
+        }
+    </style>
+
 </head>
 
 <body>
@@ -84,10 +108,61 @@
         </div>
     </div>
 
+    <div class="container">
+        <div class="row">
+            <div class="col"><input id="sunsetIn1" class="form-control sunsetIn" placeholder="Number 1" /></div>
+            <div class="col"><input id="sunsetIn2" class="form-control sunsetIn" placeholder="Number 2" /></div>
+            <div class="col"><input id="sunsetIn3" class="form-control sunsetIn" placeholder="Number 3" /></div>
+            <div class="col"><input id="sunsetIn4" class="form-control sunsetIn" placeholder="Number 4" /></div>
+            <div class="col"><input id="sunsetIn5" class="form-control sunsetIn" placeholder="Number 5" /></div>
+            <div class="col"><input id="sunsetIn6" class="form-control sunsetIn" placeholder="Number 6" /></div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <button id="btnSunset" class="btn btn-dark elWide">Calculate</button>
+            </div>
+        </div>
+        <hr />
+        <div class="row">
+            <div class="col h2">
+                <p id="sunsetOut"></p>
+            </div>
+        </div>
+    </div>
+
     <!-- Bootstrap core JavaScript -->
     <script src="//code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="//cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="//stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    
+    <script>
+        //Step 1: click event handler
+        $("#btnSunset").on("click", function () {
+            //Step 2: get user data
+            let bldg1 = parseInt($("#sunsetIn1").val());
+            let bldg2 = parseInt($("#sunsetIn2").val());
+            let bldg3 = parseInt($("#sunsetIn3").val());
+            let bldg4 = parseInt($("#sunsetIn4").val());
+            let bldg5 = parseInt($("#sunsetIn5").val());
+            let bldg6 = parseInt($("#sunsetIn6").val());
+            //Step 3: build an array from the user input
+            let bldgArray = [bldg1, bldg2, bldg3, bldg4, bldg5, bldg6];
+            //let output = [];
+            let output = new Array();
+            let tallest = 0;
+            let currentBldg = 0;
+            for (let loop = 0; loop < bldgArray.length; loop++) {
+                currentBldg = bldgArray[loop];
+                //Step 4: perform algotrithm
+                if (currentBldg > tallest) {
+                    output.push(currentBldg);
+                    tallest = currentBldg;
+                }
+                //Step 5: output to user
+                $("#sunsetOut").html(`Given the input, <span class="bldgCount">${output.length}</span> buildings can see the sunset. <br />The buildings that can see the sunset are <span class="bldgCount">[${output.toString()}]</span>`);
+            }
+        });
+    </script>
 
 </body>
 
