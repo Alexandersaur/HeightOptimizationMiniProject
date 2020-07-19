@@ -20,7 +20,23 @@
 
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <style>
+        .jumbotron {
+            background-image: url('projart3.jpg');
+            background-size: cover;
+            border-bottom: 6px solid black;
+            font: white;
+            font-weight: 800;
+            font-size: 50px;
+            text-transform: uppercase;
+            text-shadow: 0px 4px 3px rgba(0,0,0,0.4), 0px 8px 13px rgba(0,0,0,0.1), 0px 10px 23px rgba(0,0,0,0.1);
+        }
 
+        #title {
+            font: #ff3926
+        }
+
+    </style>
 </head>
 
 <body>
@@ -56,8 +72,8 @@
                     </li>-->
                 </ul>
                 <div class="dropdown">
-                    <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
-                        Other Mini Projects
+                    <button type="button" class="btn btn-dark dropdown-toggle" data-toggle="dropdown">
+                        Mini Projects
                     </button>
                     <div class="dropdown-menu">
                         <a class="dropdown-item" href="//jeremysteward-cf-1.netlify.app/">Taco Cat</a>
@@ -71,11 +87,19 @@
     </nav>
 
     <!-- Page Content -->
+
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container text-white text-center">
+            <h1 id="title">Sunset Hills</h1>
+            <p><!--Bootstrap is the most popular HTML, CSS, and JS framework for developing responsive, mobile-first projects on the web.--></p>
+        </div>
+    </div>
+
     <div class="container">
         <div class="row">
             <div class="col-lg-12 text-center">
-                <h1 class="mt-5">SUNSET HILLS</h1>
-                <p class="lead">Height optimization</p>
+                <h1 class="mt-5">Height Optimization</h1>
+                <!--<p class="lead">Height optimization</p>-->
                 <ul class="list-unstyled">
                     <li>An array of buildings is facing the sun. The heights of each building from left to right is given in an integer array. Determine which buildings will be able to see the sunset.</li>
                     <li>If a building is to the right of a taller building, the taller building will block it from being able to see the sunset.</li>
